@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar/Navbar";
 import { Outlet } from "react-router";
 import Footer from "../components/Footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 const Root = () => {
   return (
@@ -14,6 +15,7 @@ const Root = () => {
       <footer>
         <Footer />
       </footer>
+      <Toaster position="top-right" reverseOrder={false} />
     </>
   );
 };

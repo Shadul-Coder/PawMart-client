@@ -1,1 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #f04336;
+  --color-secondary: #ff9266;
+}
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: #f04336;
+  --color-secondary: #ff9266;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+* {
+  font-family: "Exo 2", sans-serif;
+}
