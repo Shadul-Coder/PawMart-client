@@ -14,6 +14,7 @@ import AuthContext from "./AuthContext";
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -39,6 +40,8 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
   const authInfo = {
+    theme,
+    setTheme,
     user,
     setUser,
     loading,

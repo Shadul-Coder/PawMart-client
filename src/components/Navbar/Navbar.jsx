@@ -1,25 +1,19 @@
 import { Link, NavLink } from "react-router";
 import logo from "/Logo.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import useAuth from "../../hooks/useAuth";
 import { CgMenuRightAlt } from "react-icons/cg";
 import navimg from "../../assets/Nav Design.png";
 import navimgblack from "../../assets/Nav Design Black.png";
 import avatar from "../../assets/Default Avatar.png";
-import { FaPaw, FaShop, FaUser } from "react-icons/fa6";
+import { FaShop, FaUser } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
 import { MdPostAdd } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { FiShoppingBag } from "react-icons/fi";
-import {
-  IoIosNotifications,
-  IoMdHelpCircle,
-  IoMdSettings,
-} from "react-icons/io";
 
 const Navbar = () => {
-  const { user, signOutuser } = useAuth();
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { theme, setTheme, user, signOutuser } = useAuth();
   const themeButton1 = useRef(null);
   const themeButton2 = useRef(null);
   const navLinks = [
@@ -46,10 +40,10 @@ const Navbar = () => {
     signOutuser().then().catch();
   };
   return (
-    <>
+    <nav>
       <div className="max-w-7xl mx-auto w-[95%] mt-5 mb-3 sm:mt-6 sm:mb-4 lg:mt-7 lg:mb-5 lg:w-[97%]">
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-3">
+          <Link to={"/"} className="flex items-center gap-3 cursor-default">
             <img src={logo} alt="" className="h-10 md:h-11" />
             <h1
               style={{ fontFamily: '"Sarina", cursive' }}
@@ -57,7 +51,7 @@ const Navbar = () => {
             >
               PawMart
             </h1>
-          </div>
+          </Link>
           <div className="space-x-5">
             {navLinks.map((link) => (
               <NavLink
@@ -70,6 +64,16 @@ const Navbar = () => {
                 {link[1]}
               </NavLink>
             ))}
+            {!user && (
+              <NavLink
+                to={"/profile"}
+                className={
+                  "hidden lg:inline-block cursor-pointer uppercase px-4 py-2 rounded-lg active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.3rem_0.3rem_#f04336,-0.3rem_-0.3rem_#ff9266] transition"
+                }
+              >
+                Profile
+              </NavLink>
+            )}
             {user &&
               protectedLinks.map((link) => (
                 <NavLink
@@ -86,7 +90,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="hidden lg:block">
               {user?.photoURL ? (
-                <div className="h-[50px] w-[50px] rounded-full border border-primary overflow-hidden cursor-pointer hover:scale-103 transition-all duration-300">
+                <div className="h-[50px] w-[50px] rounded-full border border-[#fc6940] overflow-hidden cursor-pointer hover:scale-103 transition-all duration-300">
                   <img
                     className="h-full w-full object-cover"
                     src={user.photoURL}
@@ -107,7 +111,7 @@ const Navbar = () => {
             >
               <div className="flex items-center gap-3 p-4 border-b border-base-300">
                 {user?.photoURL ? (
-                  <div className="h-[45px] w-[45px] border border-primary rounded-full overflow-hidden">
+                  <div className="h-[45px] w-[45px] border border-[#fc6940] rounded-full overflow-hidden">
                     <img
                       src={user.photoURL}
                       alt="Profile"
@@ -122,33 +126,23 @@ const Navbar = () => {
                     {user?.displayName || "Guest"}
                   </p>
                   <p className="text-sm text-gray-500">
-                    {user?.email || "your@email.com"}
+                    {user?.email || "user@email.com"}
                   </p>
                 </div>
               </div>
               <div className="p-4 space-y-1">
                 {user && (
                   <>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-200 transition-all cursor-pointer">
-                      <FaUser className="text-primary" /> Profile
-                    </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-200 transition-all cursor-pointer">
-                      <IoIosNotifications className="text-primary" />
-                      Notifications
-                    </div>
-                    <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-200 transition-all cursor-pointer">
-                      <IoMdSettings className="text-primary" /> Settings
-                    </div>
+                    <Link
+                      to={"/profile"}
+                      className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-300 transition-all cursor-pointer"
+                    >
+                      <FaUser className="text-[#fc6940]" /> Profile
+                    </Link>
+                    <div className="border-t border-base-300 mt-3 mb-4.5"></div>
                   </>
                 )}
-                <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-200 transition-all cursor-pointer">
-                  <IoMdHelpCircle className="text-primary" /> Help & Support
-                </div>
-                <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-200 transition-all cursor-pointer">
-                  <FaPaw className="text-primary" /> About PawMart
-                </div>
-                <div className="border-t border-base-300 my-3"></div>
-                <div className="flex justify-between items-center px-3 py-1.5">
+                <div className="flex justify-between items-center px-3 pb-1.5">
                   <span className="text-[15px] font-medium">Theme</span>{" "}
                   <label className="inline-flex items-center relative cursor-pointer">
                     <input
@@ -215,7 +209,7 @@ const Navbar = () => {
             <CgMenuRightAlt />
           </label>
         </div>
-        <div className="drawer drawer-end">
+        <div className="drawer drawer-end z-99">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-side">
             <label
@@ -227,7 +221,7 @@ const Navbar = () => {
               {user && (
                 <div className="mx-auto py-5 space-y-3">
                   {user.photoURL ? (
-                    <div className="mx-auto h-[70px] w-[70px] border border-primary rounded-full overflow-hidden">
+                    <div className="mx-auto h-[70px] w-[70px] border border-[#fc6940] rounded-full overflow-hidden">
                       <img
                         className="h-full w-full object-cover"
                         src={user.photoURL}
@@ -260,6 +254,14 @@ const Navbar = () => {
                     {link[2]} {link[1]}
                   </NavLink>
                 ))}
+                {!user && (
+                  <NavLink
+                    to={"/profile"}
+                    className={"px-5 py-3 rounded-lg flex items-center gap-3"}
+                  >
+                    <FaUser /> Profile
+                  </NavLink>
+                )}
                 {user &&
                   protectedLinks.map((link) => (
                     <NavLink
@@ -334,13 +336,13 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="w-screen overflow-hidden">
+      <div className="w-full overflow-hidden bg-base-200">
         <img
           src={theme === "light" ? navimg : navimgblack}
           alt=""
           className={`${
             theme === "light" ? "" : "drop-shadow-white"
-          } w-screen min-w-7xl my-1`}
+          } w-full min-w-7xl mb-1`}
           style={{
             filter:
               theme === "light"
@@ -349,7 +351,7 @@ const Navbar = () => {
           }}
         />
       </div>
-    </>
+    </nav>
   );
 };
 
