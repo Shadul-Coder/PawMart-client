@@ -1,13 +1,32 @@
-import { useState } from "react";
-import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import Loading from "../components/Loading/Loading";
 
 const Register = () => {
-  const { setUser, googleSignIn, emailRegister, update } = useAuth();
+  const navigate = useNavigate();
+  const {
+    user,
+    setUser,
+    loading,
+    setLoading,
+    googleSignIn,
+    emailRegister,
+    update,
+  } = useAuth();
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
+  if (loading) {
+    return <Loading />;
+  }
   const handleShowPass = (e) => {
     e.preventDefault();
     setShowPass(!showPass);
@@ -20,6 +39,36 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const name = fname + " " + lname;
+    const namePattern = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
+    const urlPattern = /^https:\/\/([\w\-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if (!namePattern.test(fname)) {
+      setError("Please enter a valid first name.");
+      return;
+    }
+    if (!namePattern.test(lname)) {
+      setError("Please enter a valid last name.");
+      return;
+    }
+    if (!urlPattern.test(url)) {
+      setError("Please enter a valid photo URL starting with https://");
+      return;
+    }
+    if (!emailPattern.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    if (!passwordPattern.test(password)) {
+      setError(
+        "Password must be at least 6 characters with uppercase and lowercase letters."
+      );
+      return;
+    }
+    if (!e.target.terms.checked) {
+      setError("You must accept the terms and conditions.");
+      return;
+    }
     emailRegister(email, password)
       .then((res) => {
         const current = res.user;
@@ -30,10 +79,12 @@ const Register = () => {
           .catch((error) => {
             setError(error.message);
           });
+        navigate("/");
         toast.success("Registration successful!");
       })
       .catch((error) => {
         setError(error.message);
+        setLoading(false);
       });
   };
   const handleGoogleSignIn = () => {
@@ -65,7 +116,7 @@ const Register = () => {
           Register to adopt, sell, or shop for pets and products with trust and
           care
         </p>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form id="register" onSubmit={handleSubmit} className="space-y-6">
           <div className="flex space-x-4">
             <div className="relative flex-1">
               <input
@@ -157,6 +208,7 @@ const Register = () => {
             <input
               type="checkbox"
               className="checkbox bg-white checked:border-white checked:text-primary"
+              name="terms"
             />
             <span className="ml-2">Accept our terms & conditions</span>
           </label>
@@ -252,6 +304,7 @@ const Register = () => {
             LogIn
           </Link>
         </div>
+        {error && <p className="text-[#fef08a] mt-3 text-center">{error}</p>}
       </div>
     </div>
   );

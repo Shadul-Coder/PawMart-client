@@ -3,12 +3,12 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import LogIn from "../pages/LogIn";
 import Register from "../pages/Register";
-import { Component } from "react";
 import AdoptShop from "../pages/AdoptShop";
 import CreatePost from "../pages/CreatePost";
 import Dashboard from "../pages/Dashboard";
 import Orders from "../pages/Orders";
 import Profile from "../pages/profile";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/profile",
-        Component: Profile,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         index: true,
@@ -37,15 +41,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-post",
-        Component: CreatePost,
+        element: (
+          <PrivateRoute>
+            <CreatePost />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard",
-        Component: Dashboard,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/orders",
-        Component: Orders,
+        element: (
+          <PrivateRoute>
+            <Orders />
+          </PrivateRoute>
+        ),
       },
     ],
   },

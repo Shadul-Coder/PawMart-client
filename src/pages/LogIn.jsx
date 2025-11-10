@@ -1,13 +1,25 @@
-import { useState } from "react";
-import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import Loading from "../components/Loading/Loading";
 
 const LogIn = () => {
-  const { googleSignIn, emailSignIn } = useAuth();
+  const navigate = useNavigate();
+  const { user, loading, setLoading, googleSignIn, emailSignIn } = useAuth();
+  const location = useLocation();
+  const [remember, setRemember] = useState(localStorage.getItem("email") || "");
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
+  useEffect(() => {
+    if (user) {
+      navigate(location.state || "/");
+    }
+  }, [user, location.state, navigate]);
+  if (loading) {
+    return <Loading />;
+  }
   const handleShowPass = (e) => {
     e.preventDefault();
     setShowPass(!showPass);
@@ -16,12 +28,22 @@ const LogIn = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
     emailSignIn(email, password)
       .then(() => {
+        if (e.target.remember.checked) {
+          localStorage.setItem("email", email);
+          setRemember(email);
+        }
         toast.success("Login successful!");
       })
       .catch((error) => {
         setError(error.message);
+        setLoading(false);
       });
   };
   const handleGoogleSignIn = () => {
@@ -52,13 +74,14 @@ const LogIn = () => {
         >
           Access your dashboard and continue your journey with PawMart
         </p>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form id="login" onSubmit={handleSubmit} className="space-y-6">
           <div className="relative">
             <input
               placeholder="your@gmail.com"
               className="peer h-10 w-full border-b-2 border-gray-300 text-white bg-transparent placeholder-transparent focus:outline-none focus:border-gray-100"
               id="email"
               name="email"
+              defaultValue={remember}
               type="text"
             />
             <label
@@ -98,6 +121,7 @@ const LogIn = () => {
               <input
                 type="checkbox"
                 className="checkbox bg-white checked:border-white checked:text-primary"
+                name="remember"
               />
               <span className="ml-2">Remember me</span>
             </label>
@@ -197,6 +221,7 @@ const LogIn = () => {
             Register
           </Link>
         </div>
+        {error && <p className="text-[#fef08a] mt-3 text-center">{error}</p>}
       </div>
     </div>
   );
