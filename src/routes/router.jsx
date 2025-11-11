@@ -9,6 +9,9 @@ import Dashboard from "../pages/Dashboard";
 import Orders from "../pages/Orders";
 import Profile from "../pages/profile";
 import PrivateRoute from "./PrivateRoute";
+import axios from "axios";
+import Loading from "../components/Loading/Loading";
+import Details from "../pages/Details";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +41,17 @@ const router = createBrowserRouter([
       {
         path: "/adopt&shop",
         Component: AdoptShop,
+      },
+      {
+        path: "/adopt&shop/:id",
+        hydrateFallbackElement: <Loading />,
+        loader: ({ params }) =>
+          axios(`http://localhost:3000/pets&supplies/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <Details />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/create-post",

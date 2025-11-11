@@ -14,12 +14,13 @@ const Hero = () => {
   return (
     <section
       id="banner"
-      className="relative max-w-7xl mx-auto w-[95%] py-9 sm:py-13 lg:w-[97%]"
+      className="relative max-w-7xl mx-auto w-[95%] pt-5 lg:w-[97%]"
     >
       <Swiper
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
         spaceBetween={30}
         centeredSlides={true}
+        speed={500}
         autoplay={{
           delay: 3500,
           disableOnInteraction: false,
@@ -57,19 +58,19 @@ const Hero = () => {
                   deserves happiness.
                 </p>
                 <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Adopt Now
                     </span>
                   </button>
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Explore Supplies
                     </span>
                   </button>
@@ -96,19 +97,19 @@ const Hero = () => {
                   enthusiasts — all under one roof.
                 </p>
                 <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Join Now
                     </span>
                   </button>
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Browse Listings
                     </span>
                   </button>
@@ -135,19 +136,19 @@ const Hero = () => {
                   it all together for your pets.
                 </p>
                 <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Browse Pets
                     </span>
                   </button>
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Shop Supplies
                     </span>
                   </button>
@@ -174,19 +175,19 @@ const Hero = () => {
                   difference today.
                 </p>
                 <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Start Adopting
                     </span>
                   </button>
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Learn More
                     </span>
                   </button>
@@ -213,19 +214,19 @@ const Hero = () => {
                   PawMart’s trusted community.
                 </p>
                 <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Explore Now
                     </span>
                   </button>
-                  <button class="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95">
-                    <span class="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span class="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span class="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span class="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                  <button className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
+                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                       Add a Listing
                     </span>
                   </button>
@@ -235,7 +236,7 @@ const Hero = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-      <button className="custom-prev absolute left-5 top-1/2 -translate-y-1/2 z-10 sm:left-6 md:left-7 lg:left-9">
+      <div className="custom-prev absolute left-5 top-1/2 -translate-y-1/2 z-10 sm:left-6 md:left-7 lg:left-9">
         <button className="button rotate-180">
           <span className="svg">
             <svg
@@ -251,8 +252,8 @@ const Hero = () => {
             </svg>
           </span>
         </button>
-      </button>
-      <button className="custom-next absolute right-5 top-1/2 -translate-y-1/2 z-10 sm:right-6 md:right-7 lg:right-9">
+      </div>
+      <div className="custom-next absolute right-5 top-1/2 -translate-y-1/2 z-10 sm:right-6 md:right-7 lg:right-9">
         <button className="button">
           <span className="svg">
             <svg
@@ -268,7 +269,7 @@ const Hero = () => {
             </svg>
           </span>
         </button>
-      </button>
+      </div>
     </section>
   );
 };
