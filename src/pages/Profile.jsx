@@ -35,6 +35,7 @@ const Profile = () => {
   };
   return (
     <div>
+      <title>Profile | PawMart</title>
       <div className="max-w-7xl w-[95%] mx-auto py-9 sm:py-13 lg:w-[97%]">
         <div className="bg-linear-to-r from-[#fff3e2] to-[#fff0f0] w-[97%] mx-auto p-6 rounded-3xl shadow-lg sm:p-10 md:p-12 lg:w-full">
           <h1 className="text-2xl font-bold text-[#f2684a] text-center mb-8 cursor-default sm:text-3xl md:text-4xl sm:mb-12">

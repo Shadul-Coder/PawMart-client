@@ -41,7 +41,20 @@ header a.active {
   @apply shadow-[0.3rem_0.3rem_#f04336,-0.3rem_-0.3rem_#ff9266];
 }
 
-/* From Uiverse.io by Nawsome */
+.swiper-pagination-bullet-active {
+  background: white !important;
+}
+
+.swiper-slide {
+  transform: scale(1.05);
+  opacity: 0.7;
+}
+
+.swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
 .pl {
   width: 6em;
   height: 6em;
@@ -70,7 +83,6 @@ header a.active {
   stroke: #fb2c36;
 }
 
-/* Animations */
 @keyframes ringA {
   from,
   4% {
@@ -255,5 +267,34 @@ header a.active {
     stroke-dasharray: 0 440;
     stroke-width: 20;
     stroke-dashoffset: -440;
+  }
+}
+
+#banner .button:hover .svg svg {
+  animation: jello-vertical 0.9s both;
+  transform-origin: left;
+}
+
+@keyframes jello-vertical {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
   }
 }
