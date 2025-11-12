@@ -140,7 +140,6 @@ const CreatePost = () => {
           defaultValue={user.email}
           readOnly
         />
-        {error.email && <p className="text-red-500 text-sm">{error.email}</p>}
         <input type="submit" value="Post" className="btn mt-2" />
       </form>
     </>
