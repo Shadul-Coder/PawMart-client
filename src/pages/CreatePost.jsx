@@ -21,19 +21,19 @@ const CreatePost = () => {
     const email = e.target.email.value.trim();
     const newErrors = {};
     if (!/^[A-Za-z\s]{3,}$/.test(name))
-      newErrors.name = "Please enter a valid name.";
-    if (category === "select") newErrors.category = "Please select a category.";
+      newErrors.name = "Please enter a valid name";
+    if (category === "select") newErrors.category = "Please select a category";
     if (!/^\d+(\.\d{1,2})?$/.test(pricestr))
       newErrors.price = "Price must be a valid number";
     if (!/^[A-Za-z0-9\s,.-]{3,}$/.test(location))
-      newErrors.location = "Enter a valid location.";
+      newErrors.location = "Enter a valid location";
     if (description.length < 10)
       newErrors.description =
-        "Description must be at least 10 characters long.";
+        "Description must be at least 10 characters long";
     if (!/^https:\/\/([\w\-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$/i.test(image))
       newErrors.image = "Image URL must start with https://";
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date))
-      newErrors.date = "Please select a date.";
+      newErrors.date = "Please select a date";
     setError(newErrors);
     if (Object.keys(newErrors).length === 0) {
       const price = Number(pricestr);
