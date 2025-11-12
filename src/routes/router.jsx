@@ -44,9 +44,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/adopt&shop/:id",
-        hydrateFallbackElement: <Loading />,
-        loader: ({ params }) =>
-          axios(`http://localhost:3000/pets-and-supplies/${params.id}`),
         element: (
           <PrivateRoute>
             <Details />

@@ -16,6 +16,7 @@ const UpdateModal = ({ modalRef, item, updateUIData }) => {
     date,
   } = item;
   const [error, setError] = useState({});
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value.trim();
@@ -61,86 +62,215 @@ const UpdateModal = ({ modalRef, item, updateUIData }) => {
       });
     }
   };
+
   return (
-    <dialog ref={modalRef} className="modal">
-      <div className="modal-box">
-        <form method="dialog">
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-            ✕
-          </button>
-        </form>
-        <form className="flex flex-col w-full" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            className="border p-1"
-            defaultValue={name}
-          />
-          {error.name && <p className="text-red-500 text-sm">{error.name}</p>}
-          <input
-            type="text"
-            name="category"
-            id=""
-            className="border p-1"
-            disabled
-            defaultValue={category}
-            readOnly
-          />
-          <input
-            type="number"
-            name="price"
-            placeholder="Price"
-            className="border p-1"
-            defaultValue={price}
-            readOnly={category === "Pets"}
-          />
-          {error.price && <p className="text-red-500 text-sm">{error.price}</p>}
-          <input
-            type="text"
-            name="location"
-            placeholder="Location"
-            className="border p-1"
-            defaultValue={location}
-          />
-          {error.location && (
-            <p className="text-red-500 text-sm">{error.location}</p>
-          )}
-          <textarea
-            name="description"
-            placeholder="Description"
-            className="border p-1"
-            defaultValue={description}
-          ></textarea>
-          {error.description && (
-            <p className="text-red-500 text-sm">{error.description}</p>
-          )}
-          <input
-            type="url"
-            name="image"
-            placeholder="Image URL"
-            className="border p-1"
-            defaultValue={image}
-          />
-          {error.image && <p className="text-red-500 text-sm">{error.image}</p>}
-          <input
-            type="date"
-            name="date"
-            className="border p-1"
-            defaultValue={date}
-          />
-          {error.date && <p className="text-red-500 text-sm">{error.date}</p>}
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="border p-1"
-            defaultValue={email}
-            readOnly
-          />
-          <input type="submit" value="Update" className="btn mt-2" />
+    <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
+      <div className="modal-box bg-base-100 border border-base-300 rounded-3xl shadow-2xl p-0 overflow-hidden max-w-2xl">
+        {/* Header */}
+        <div className="p-6 border-b border-base-300 bg-gradient-to-r from-primary/5 to-secondary/5">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                <span className="text-primary text-lg">✏️</span>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-base-content">
+                  Update Listing
+                </h3>
+                <p className="text-base-content/60 text-sm">
+                  Edit your details
+                </p>
+              </div>
+            </div>
+            <form method="dialog">
+              <button className="btn btn-ghost btn-circle hover:bg-base-300 transition-colors">
+                <span className="text-xl">✕</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="p-6 max-h-[70vh] overflow-y-auto"
+        >
+          <div className="space-y-4">
+            {/* Name Field */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium">Item Name</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter item name"
+                className="input input-bordered bg-base-200 focus:bg-base-100 focus:border-primary transition-colors"
+                defaultValue={name}
+              />
+              {error.name && (
+                <label className="label">
+                  <span className="label-text-alt text-error">
+                    {error.name}
+                  </span>
+                </label>
+              )}
+            </div>
+
+            {/* Category and Price Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-medium">Category</span>
+                </label>
+                <input
+                  type="text"
+                  name="category"
+                  className="input input-bordered bg-base-300 text-base-content/60"
+                  disabled
+                  defaultValue={category}
+                  readOnly
+                />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-medium">
+                    Price {category === "Pets" && "(Read-only)"}
+                  </span>
+                </label>
+                <input
+                  type="number"
+                  name="price"
+                  placeholder="0.00"
+                  className="input input-bordered bg-base-200 focus:bg-base-100 focus:border-primary transition-colors"
+                  defaultValue={price}
+                  readOnly={category === "Pets"}
+                />
+                {error.price && (
+                  <label className="label">
+                    <span className="label-text-alt text-error">
+                      {error.price}
+                    </span>
+                  </label>
+                )}
+              </div>
+            </div>
+
+            {/* Location Field */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium">Location</span>
+              </label>
+              <input
+                type="text"
+                name="location"
+                placeholder="Enter location"
+                className="input input-bordered bg-base-200 focus:bg-base-100 focus:border-primary transition-colors"
+                defaultValue={location}
+              />
+              {error.location && (
+                <label className="label">
+                  <span className="label-text-alt text-error">
+                    {error.location}
+                  </span>
+                </label>
+              )}
+            </div>
+
+            {/* Description Field */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium">Description</span>
+              </label>
+              <textarea
+                name="description"
+                placeholder="Enter detailed description..."
+                className="textarea textarea-bordered h-32 bg-base-200 focus:bg-base-100 focus:border-primary transition-colors resize-none"
+                defaultValue={description}
+              ></textarea>
+              {error.description && (
+                <label className="label">
+                  <span className="label-text-alt text-error">
+                    {error.description}
+                  </span>
+                </label>
+              )}
+            </div>
+
+            {/* Image URL Field */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium">Image URL</span>
+              </label>
+              <input
+                type="url"
+                name="image"
+                placeholder="https://example.com/image.jpg"
+                className="input input-bordered bg-base-200 focus:bg-base-100 focus:border-primary transition-colors"
+                defaultValue={image}
+              />
+              {error.image && (
+                <label className="label">
+                  <span className="label-text-alt text-error">
+                    {error.image}
+                  </span>
+                </label>
+              )}
+            </div>
+
+            {/* Date and Email Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-medium">Date</span>
+                </label>
+                <input
+                  type="date"
+                  name="date"
+                  className="input input-bordered bg-base-200 focus:bg-base-100 focus:border-primary transition-colors"
+                  defaultValue={date}
+                />
+                {error.date && (
+                  <label className="label">
+                    <span className="label-text-alt text-error">
+                      {error.date}
+                    </span>
+                  </label>
+                )}
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-medium">Email</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  className="input input-bordered bg-base-300 text-base-content/60"
+                  defaultValue={email}
+                  readOnly
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Submit Button */}
+          <div className="modal-action mt-6">
+            <button
+              type="submit"
+              className="btn btn-primary btn-lg w-full bg-gradient-to-r from-primary to-secondary text-white border-none shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all"
+            >
+              <span className="text-lg">💾 Update Listing</span>
+            </button>
+          </div>
         </form>
       </div>
+
+      {/* Modal Backdrop */}
+      <form method="dialog" className="modal-backdrop">
+        <button>close</button>
+      </form>
     </dialog>
   );
 };
