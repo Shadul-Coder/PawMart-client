@@ -13,7 +13,7 @@ const AdoptShop = () => {
   const [filter, setFilter] = useState(
     (location.search.includes("?filter=") && location.search.slice(8)) || ""
   );
-  const [selectedFilter, setSelectedFilter] = useState("select");
+  const [selectedFilter, setSelectedFilter] = useState(filter);
   useEffect(() => {
     const fetchData = async () => {
       const endpoint = filter
