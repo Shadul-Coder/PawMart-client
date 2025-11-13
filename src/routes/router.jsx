@@ -9,13 +9,13 @@ import Dashboard from "../pages/Dashboard";
 import Orders from "../pages/Orders";
 import Profile from "../pages/profile";
 import PrivateRoute from "./PrivateRoute";
-import axios from "axios";
-import Loading from "../components/Loading/Loading";
 import Details from "../pages/Details";
+import ErrorPage from "../components/Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage />,
     Component: Root,
     children: [
       {

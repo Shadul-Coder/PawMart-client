@@ -1,18 +1,24 @@
 import { Link } from "react-router";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsFillSendFill } from "react-icons/bs";
+import { motion } from "motion/react";
 
 const ItemBox = ({ item }) => {
   const { _id, name, category, price, location, image } = item;
 
   return (
-    <div className="group cursor-pointer relative transition-all duration-500 hover:-translate-x-1">
+    <motion.div
+      whileHover={{ y: -5 }}
+      className="group cursor-pointer relative transition-all duration-500"
+    >
       <div className="relative bg-base-100 shadow-md rounded-2xl rounded-bl-4xl overflow-hidden h-full">
         <div className="relative aspect-4/3 overflow-hidden">
-          <img
+          <motion.img
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.7 }}
             src={image}
             alt={name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-cover"
           />
           <div className="absolute top-0 left-0 right-0 bg-linear-to-b from-black/40 to-transparent p-3 sm:p-4">
             <div className="flex justify-between items-start">
@@ -65,7 +71,7 @@ const ItemBox = ({ item }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

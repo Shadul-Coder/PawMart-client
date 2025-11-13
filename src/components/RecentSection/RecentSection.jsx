@@ -3,6 +3,8 @@ import useAxios from "../../hooks/useAxios";
 import Loading from "../Loading/Loading";
 import ItemBox from "../ItemBox/ItemBox";
 import { Link } from "react-router";
+import { motion } from "motion/react";
+import { Typewriter } from "react-simple-typewriter";
 
 const RecentSection = () => {
   const [data, setData] = useState(null);
@@ -28,23 +30,59 @@ const RecentSection = () => {
     <section className="py-8 md:py-12 lg:py-16">
       <div className="max-w-7xl mx-auto w-[95%] lg:w-[97%]">
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Latest Products
-          </h2>
-          <p className="md:text-lg max-w-3xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
+          >
+            <span className="text-[#fc4422]">
+              <Typewriter
+                words={["Latest Products"]}
+                loop={1}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="md:text-lg max-w-3xl mx-auto"
+          >
             Discover our newest arrivals for your beloved pets - fresh products
             added regularly
-          </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#fc4422] to-[#ff9266] mx-auto mt-4 rounded-full"></div>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="w-20 h-1 bg-gradient-to-r from-[#fc4422] to-[#ff9266] mx-auto mt-4 rounded-full"
+          ></motion.div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-8">
           {data.map((item, index) => (
-            <div key={item._id} style={{ animationDelay: `${index * 100}ms` }}>
+            <motion.div
+              key={item._id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+            >
               <ItemBox item={item} />
-            </div>
+            </motion.div>
           ))}
         </div>
-        <div className="text-center mt-10 md:mt-12 lg:mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-10 md:mt-12 lg:mt-16"
+        >
           <Link
             to={"/adopt&shop"}
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#fc4422] to-[#ff9266] text-white font-semibold rounded-xl text-base md:text-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:from-[#ff9266] hover:to-[#fc4422] shadow-lg"
@@ -64,7 +102,7 @@ const RecentSection = () => {
               />
             </svg>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

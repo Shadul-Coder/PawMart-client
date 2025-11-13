@@ -2,6 +2,8 @@ import user1 from "../../assets/User 1.jpg";
 import user2 from "../../assets/User 2.jpg";
 import user3 from "../../assets/User 3.jpg";
 import user4 from "../../assets/User 4.jpg";
+import { motion } from "motion/react";
+import { Typewriter } from "react-simple-typewriter";
 
 const PetHeroesSection = () => {
   const heroes = [
@@ -58,18 +60,43 @@ const PetHeroesSection = () => {
     <section className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto w-[95%] lg:w-[97%]">
         <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Our <span className="text-[#fc4422]">Pet</span> Heroes
-          </h2>
-          <p className="md:text-lg max-w-3xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
+          >
+            Our{" "}
+            <span className="text-[#fc4422]">
+              <Typewriter
+                words={["Pet Heroes"]}
+                loop={1}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="md:text-lg max-w-3xl mx-auto"
+          >
             Meet the incredible people transforming animal welfare across
             Bangladesh through compassion and action.
-          </p>
+          </motion.p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          {heroes.map((hero) => (
-            <div
+          {heroes.map((hero, index) => (
+            <motion.div
               key={hero.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
               className="group relative bg-base-100 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 overflow-hidden"
             >
               <div className="bg-gradient-to-r from-[#fc4422] to-[#ff9266] p-6 text-white relative overflow-hidden">
@@ -77,9 +104,12 @@ const PetHeroesSection = () => {
                 <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full translate-y-8 -translate-x-8"></div>
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-16 h-16 bg-white/20 overflow-hidden rounded-2xl flex items-center justify-center text-2xl">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      className="w-16 h-16 bg-white/20 overflow-hidden rounded-2xl flex items-center justify-center text-2xl"
+                    >
                       <img src={hero.image} alt="" />
-                    </div>
+                    </motion.div>
                     <div className="text-right">
                       <div className="text-white/80 text-sm">Location</div>
                       <div className="font-bold text-lg">{hero.location}</div>
@@ -111,16 +141,25 @@ const PetHeroesSection = () => {
                   <span className="text-gray-500 text-sm font-medium">
                     {hero.social}
                   </span>
-                  <button className="px-4 py-2 bg-[#fc4422] text-white rounded-full text-sm font-semibold hover:bg-[#e53e1f] transition-colors duration-300 transform hover:scale-105">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-4 py-2 bg-[#fc4422] text-white rounded-full text-sm font-semibold hover:bg-[#e53e1f] transition-colors duration-300"
+                  >
                     Follow
-                  </button>
+                  </motion.button>
                 </div>
               </div>
               <div className="absolute inset-0 border-2 border-transparent rounded-3xl transition-all duration-300 pointer-events-none"></div>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <div className="mt-20 bg-gradient-to-r from-[#fc4422] to-[#ff9266] rounded-3xl p-8 lg:p-12 text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-20 bg-gradient-to-r from-[#fc4422] to-[#ff9266] rounded-3xl p-8 lg:p-12 text-white"
+        >
           <div className="text-center mb-8">
             <h3 className="text-3xl lg:text-4xl font-bold mb-4">
               Collective Impact Across Bangladesh
@@ -136,18 +175,22 @@ const PetHeroesSection = () => {
               { number: "200+", label: "Volunteers" },
               { number: "95%", label: "Success Rate" },
             ].map((stat, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
                 className="text-center p-6 bg-white/10 rounded-2xl backdrop-blur-sm"
               >
                 <div className="text-2xl lg:text-3xl font-bold mb-2">
                   {stat.number}
                 </div>
                 <div className="text-white/80 text-sm">{stat.label}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -56,11 +56,11 @@ const LogIn = () => {
       });
   };
   return (
-    <div>
+    <div className="max-w-7xl mx-auto w-[95%] py-9 sm:py-13 lg:w-[97%]">
       <title>Login | PawMart</title>
       <div
         style={{ animation: "slideInFromLeft 1s ease-out" }}
-        className="max-w-md w-full bg-linear-to-r from-primary to-secondary rounded-xl shadow-2xl overflow-hidden p-8 space-y-8"
+        className="max-w-md mx-auto w-full bg-linear-to-r from-primary to-secondary rounded-xl shadow-2xl overflow-hidden p-8 space-y-8"
       >
         <h2
           style={{ animation: "appear 2s ease-out" }}

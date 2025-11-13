@@ -1,3 +1,6 @@
+import { motion } from "motion/react"
+import { Typewriter } from "react-simple-typewriter";
+
 const WhyAdoptSection = () => {
   const adoptionReasons = [
     {
@@ -37,14 +40,36 @@ const WhyAdoptSection = () => {
     <section className="py-16 md:py-20">
       <div className="max-w-7xl mx-auto w-[95%] lg:w-[97%]">
         <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Why Adopt from <span className="text-[#fc4422]">PawMart</span> BD?
-          </h2>
-          <p className="md:text-lg max-w-3xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
+          >
+            Why Adopt from{" "}
+            <span className="text-[#fc4422]">
+              <Typewriter
+                words={["PawMart"]}
+                loop={1}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>{" "}
+            BD?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="md:text-lg max-w-3xl mx-auto"
+          >
             Join thousands of Bangladeshi families who've chosen compassion.
             Every adoption creates space for another street animal to be
             rescued.
-          </p>
+          </motion.p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {[
@@ -53,30 +78,41 @@ const WhyAdoptSection = () => {
             { number: "95%", label: "Success Rate" },
             { number: "50+", label: "Vet Partners" },
           ].map((stat, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
               className="text-center p-6 bg-base-100 shadow rounded-2xl"
             >
               <div className="text-2xl lg:text-3xl font-bold text-[#fc4422]">
                 {stat.number}
               </div>
               <div className="text-gray-600 text-sm mt-2">{stat.label}</div>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {adoptionReasons.map((reason, index) => (
-            <div
+            <motion.div
               key={reason.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
               className="group relative bg-gradient-to-br from-white/10 to-orange-50/10 rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-orange-100"
             >
               <div className="hidden sm:flex absolute -top-4 -left-4 w-12 h-12 bg-[#fc4422] text-white rounded-full items-center justify-center font-bold text-lg shadow-lg">
                 {index + 1}
               </div>
               <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 text-5xl transform group-hover:scale-110 transition-transform duration-300">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="flex-shrink-0 text-5xl transform group-hover:scale-110 transition-transform duration-300"
+                >
                   {reason.icon}
-                </div>
+                </motion.div>
                 <div className="flex-1">
                   <h3 className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-[#fc4422] transition-colors duration-300">
                     {reason.title}
@@ -89,7 +125,7 @@ const WhyAdoptSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
