@@ -1,110 +1,68 @@
 import { Link } from "react-router";
+import { FaLocationDot } from "react-icons/fa6";
+import { BsFillSendFill } from "react-icons/bs";
 
 const ItemBox = ({ item }) => {
   const { _id, name, category, price, location, image } = item;
 
-  const getCategoryIcon = (cat) => {
-    switch (cat) {
-      case "pets":
-        return "🐕";
-      case "foods":
-        return "🍖";
-      case "accessories":
-        return "🧸";
-      case "care-products":
-        return "💊";
-      default:
-        return "📦";
-    }
-  };
-
-  const getCategoryColor = (cat) => {
-    switch (cat) {
-      case "pets":
-        return "from-blue-500 to-cyan-400";
-      case "foods":
-        return "from-amber-500 to-orange-400";
-      case "accessories":
-        return "from-purple-500 to-pink-400";
-      case "care-products":
-        return "from-green-500 to-emerald-400";
-      default:
-        return "from-gray-500 to-gray-400";
-    }
-  };
-
   return (
-    <div className="group relative bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
-      {/* Background Gradient Effect */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${getCategoryColor(category)} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-      
-      {/* Image Container */}
-      <div className="relative overflow-hidden rounded-t-3xl">
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-700"
-        />
-        
-        {/* Category Badge */}
-        <div className="absolute top-4 left-4">
-          <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-2xl px-3 py-2 border border-white/20 shadow-lg">
-            <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
-              <span className="text-base">{getCategoryIcon(category)}</span>
-              <span className="capitalize">{category.replace('-', ' ')}</span>
-            </span>
-          </div>
-        </div>
-        
-        {/* Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      </div>
-
-      {/* Content */}
-      <div className="p-6 relative">
-        {/* Title */}
-        <h3 className="font-bold text-xl text-gray-800 dark:text-white mb-3 line-clamp-2 group-hover:text-[#fc4422] transition-colors duration-300">
-          {name}
-        </h3>
-
-        {/* Location */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-            <div className="w-8 h-8 bg-orange-100 dark:bg-gray-700 rounded-full flex items-center justify-center">
-              <span className="text-sm">📍</span>
+    <div className="group relative transition-all duration-500 hover:-translate-x-1">
+      <div className="relative bg-base-100 shadow-md rounded-2xl rounded-bl-4xl overflow-hidden h-full">
+        <div className="relative aspect-4/3 overflow-hidden">
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute top-0 left-0 right-0 bg-linear-to-b from-black/40 to-transparent p-3 sm:p-4">
+            <div className="flex justify-between items-start">
+              <div className="bg-base-100/90 backdrop-blur-md rounded-lg px-3 py-1.5 sm:px-4 sm:py-2">
+                <span className="text-xs sm:text-sm font-bold text-base-content capitalize">
+                  {category}
+                </span>
+              </div>
+              <div className="rounded-lg px-3 py-1.5 sm:px-4 sm:py-2 font-black text-white bg-linear-to-r from-[#fc4422] to-[#ff9266] text-xs sm:text-sm">
+                {price === 0 ? "Adopt" : `${price} TK`}
+              </div>
             </div>
-            <span className="font-medium truncate">{location}</span>
           </div>
+          <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-linear-to-t from-base-100 to-transparent"></div>
         </div>
-
-        {/* Price and CTA */}
-        <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
-          <div className="flex flex-col">
-            <span
-              className={`text-2xl font-bold ${
-                price === 0 ? "text-green-600" : "text-[#fc4422]"
-              }`}
-            >
-              {price === 0 ? "Free" : `$${price}`}
-            </span>
-            {price === 0 && (
-              <span className="text-sm text-green-600 font-semibold bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-lg">
-                🏠 For Adoption
+        <div className="p-4 sm:p-5 lg:p-6 space-y-4 sm:space-y-5">
+          <h3 className="font-bold text-lg sm:text-xl text-base-content line-clamp-2 leading-tight min-h-12 sm:min-h-14 mb-2">
+            {name}
+          </h3>
+          <div className="flex items-center gap-2 sm:gap-3 mb-4">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-base-200 rounded-xl flex items-center justify-center">
+              <span className="text-base-content/70 text-sm sm:text-lg">
+                <FaLocationDot />
               </span>
-            )}
+            </div>
+            <div>
+              <p className="text-xs sm:text-sm text-base-content/60 font-medium">
+                Location
+              </p>
+              <p className="font-semibold text-base-content text-sm sm:text-base">
+                {location}
+              </p>
+            </div>
           </div>
-
-          <Link
-            to={`/adopt&shop/${_id}`}
-            className="bg-gradient-to-r from-[#fc4422] to-[#ff9266] text-white px-6 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-orange-500/25 transform hover:scale-105 active:scale-95 transition-all duration-300 group/btn flex items-center gap-2"
-          >
-            <span className="group-hover/btn:translate-x-0.5 transition-transform">
-              View Details
-            </span>
-            <span className="text-lg group-hover/btn:translate-x-1 transition-transform">
-              →
-            </span>
-          </Link>
+          <div className="pt-2">
+            <Link
+              to={`/adopt&shop/${_id}`}
+              className="group/btn relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl bg-gradient-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95"
+            >
+              <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-gradient-to-r from-[#ff9266] to-[#fc4422] rounded group-hover/btn:-mr-4 group-hover/btn:-mt-4"></span>
+              <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-gradient-to-r from-[#ff9266] to-[#fc4422] rounded group-hover/btn:-ml-4 group-hover/btn:-mb-4"></span>
+              <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-gradient-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover/btn:translate-x-0"></span>
+              <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out">
+                <span className="flex justify-center items-center gap-1.5">
+                  View Details{" "}
+                  <BsFillSendFill className="text-white group-hover/btn:rotate-45 ease-linear duration-300" />
+                </span>
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

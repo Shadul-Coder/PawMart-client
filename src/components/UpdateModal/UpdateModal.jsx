@@ -63,8 +63,8 @@ const UpdateModal = ({ modalRef, item, updateUIData }) => {
     }
   };
   return (
-    <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
-      <div className="modal-box bg-base-100 border border-base-300 rounded-2xl shadow-2xl p-0 mx-auto w-[95%] max-w-2xl max-h-[95vh] overflow-y-auto">
+    <dialog ref={modalRef} className="modal">
+      <div className="modal-box bg-base-100 border border-base-300 rounded-2xl shadow-2xl p-0 mx-auto w-[95%] max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="p-4 sm:p-6 border-b border-base-300 bg-linear-to-r from-primary/5 to-secondary/5 sticky top-0 bg-base-100 z-10">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-3">
