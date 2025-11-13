@@ -6,7 +6,7 @@ const ItemBox = ({ item }) => {
   const { _id, name, category, price, location, image } = item;
 
   return (
-    <div className="group relative transition-all duration-500 hover:-translate-x-1">
+    <div className="group cursor-pointer relative transition-all duration-500 hover:-translate-x-1">
       <div className="relative bg-base-100 shadow-md rounded-2xl rounded-bl-4xl overflow-hidden h-full">
         <div className="relative aspect-4/3 overflow-hidden">
           <img

@@ -98,7 +98,7 @@ const AdoptShop = () => {
                   setFilter(cat);
                   if (searchRef.current) searchRef.current.value = "";
                 }}
-                className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
+                className={`px-6 py-3 cursor-pointer rounded-2xl font-semibold transition-all duration-300 ${
                   selectedFilter === cat
                     ? "bg-linear-to-r from-[#fc4422] to-[#ff9266] text-white shadow-lg"
                     : "bg-base-100 shadow text-base-content hover:bg-base-300"
@@ -125,7 +125,7 @@ const AdoptShop = () => {
               />
               <button
                 type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-linear-to-r from-[#fc4422] to-[#ff9266] text-white p-3 rounded-xl font-semibold hover:shadow-md hover:shadow-[#fc4422]/25 transition-all duration-200"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-linear-to-r cursor-pointer from-[#fc4422] to-[#ff9266] text-white p-3 rounded-xl font-semibold hover:shadow-md hover:shadow-[#fc4422]/25 transition-all duration-200"
               >
                 <FaSearch />
               </button>

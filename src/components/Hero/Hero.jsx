@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <section
       id="banner"
-      className="relative max-w-7xl mx-auto w-[95%] pt-5 lg:w-[97%]"
+      className="relative max-w-7xl mx-auto w-[95%] pt-10 lg:w-[97%]"
     >
       <Swiper
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
