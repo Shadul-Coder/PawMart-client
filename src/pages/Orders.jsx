@@ -5,6 +5,7 @@ import Loading from "../components/Loading/Loading";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
 import { FiShoppingBag } from "react-icons/fi";
+import { FaDownload } from "react-icons/fa6";
 
 const Orders = () => {
   const { user } = useAuth();
@@ -70,7 +71,7 @@ const Orders = () => {
             </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-md mx-auto lg:mx-0">
-            <div className="bg-base-100 rounded-xl md:rounded-2xl p-3 md:p-4 text-center shadow-sm border border-base-300 hover:shadow-md transition-shadow duration-300">
+            <div className="bg-base-100 shadow-sm border border-base-300 hover:shadow-md transition-shadow duration-300 rounded-xl md:rounded-2xl p-3 md:p-4 text-center">
               <div className="text-xl cursor-default md:text-2xl font-bold text-[#fc4422]">
                 {data.length}
               </div>
@@ -112,7 +113,7 @@ const Orders = () => {
               <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
               <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
               <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                Download PDF
+                <span className="flex items-center gap-1.5"><FaDownload /> Download PDF</span>
               </span>
             </button>
           </div>
@@ -172,7 +173,7 @@ const Orders = () => {
                         </div>
                       </td>
                       <td className="py-3 px-4 sm:py-4 sm:px-5 lg:px-6">
-                        <div className="text-base-content font-medium text-sm md:text-base">
+                        <div className="text-base-content whitespace-nowrap font-medium text-sm md:text-base">
                           {order.buyerName}
                         </div>
                       </td>

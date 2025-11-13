@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  // baseURL: "http://localhost:3000",
   // baseURL: "https://shadul-pawmart.vercel.app",
+  baseURL: "https://shadul-pawmart-server.onrender.com/",
 });
 
 const useSecure = () => {

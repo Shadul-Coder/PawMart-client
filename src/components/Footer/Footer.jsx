@@ -70,7 +70,7 @@ const Footer = () => {
               PawMart
             </h1>
           </div>
-          <p className="text-center sm:w-[80%] mx-auto md:w-[70%] lg:w-[60%]">
+          <p className="text-center cursor-default sm:w-[80%] mx-auto md:w-[70%] lg:w-[60%]">
             PawMart connects pet lovers, adopters, and sellers in one caring
             community. Adopt a furry friend or shop trusted pet supplies — all
             in one place.

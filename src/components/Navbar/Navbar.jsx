@@ -121,7 +121,7 @@ const Navbar = () => {
                 ) : (
                   <img className="w-[45px]" src={avatar} alt="" />
                 )}
-                <div className="flex flex-col">
+                <div className="flex flex-col cursor-default">
                   <p className="font-semibold">
                     {user?.displayName || "Guest"}
                   </p>
