@@ -44,84 +44,56 @@ const AdoptShop = () => {
   return (
     <>
       <title>Adopt & Shop | PawMart</title>
-      <section className="max-w-7xl mx-auto w-[95%] pt-9 sm:pt-13 lg:w-[97%]">
-        <div>
-          <div className="text-center space-y-5">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
-              Find Your
-              <span className="block bg-linear-to-r from-[#fc4422] to-[#ff9266] bg-clip-text text-transparent">
-                Perfect Match
-              </span>
-            </h1>
-            <p className="text-xl text-base-content/70 leading-relaxed max-w-lg mx-auto">
-              Discover adorable pets and premium supplies in our carefully
-              curated marketplace
-            </p>
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto">
-              <div className="bg-base-100 shadow-md rounded-2xl p-3 sm:p-5 lg:p-7 text-center hover:shadow-lg transition-all duration-300">
-                <div className="text-2xl sm:text-3xl font-bold text-[#fc4422] mb-2">
-                  {data.length}+
-                </div>
-                <div className="text-sm sm:text-base text-base-content/60">
-                  Available Items
-                </div>
-              </div>
-              <div className="bg-base-100 shadow-md rounded-2xl p-3 sm:p-5 lg:p-7 text-center hover:shadow-lg transition-all duration-300">
-                <div className="text-2xl sm:text-3xl font-bold text-[#ff9266] mb-2">
-                  4
-                </div>
-                <div className="text-sm sm:text-base text-base-content/60">
-                  Categories
-                </div>
-              </div>
-              <div className="bg-base-100 shadow-md rounded-2xl p-3 sm:p-5 lg:p-7 text-center hover:shadow-lg transition-all duration-300">
-                <div className="text-2xl sm:text-3xl font-bold text-[#fc4422] mb-2">
-                  100%
-                </div>
-                <div className="text-sm sm:text-base text-base-content/60">
-                  Verified
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="max-w-7xl mx-auto w-[95%] cursor-default pt-9 sm:pt-13 lg:w-[97%]">
+        <div className="text-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Find Your{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#fc4422] to-[#ff9266]">
+              Perfect Match
+            </span>
+          </h1>
+          <p className="text-base-content/60 text-lg max-w-md mx-auto">
+            Discover adorable pets and premium supplies in our carefully curated
+            marketplace
+          </p>
         </div>
       </section>
-      <section className="max-w-7xl mx-auto w-[95%] py-7 md:py-9 lg:py-10 lg:w-[97%]">
+      <section className="max-w-7xl mx-auto w-[95%] cursor-default py-7 md:py-9 lg:py-10 lg:w-[97%]">
         <div className="flex flex-col lg:flex-row lg:justify-between gap-5">
           <div className="grid grid-cols-2 gap-1.5 sm:gap-3 md:grid-cols-4">
-            {["pets", "foods", "accessories", "care-products"].map((cat) => (
+            {["pets", "foods", "accessories", "care-products"].map((item) => (
               <button
-                key={cat}
+                key={item}
                 onClick={() => {
-                  setSelectedFilter(cat);
-                  navigate(`/adopt&shop?filter=${cat}`);
-                  setFilter(cat);
+                  setSelectedFilter(item);
+                  navigate(`/adopt&shop?filter=${item}`);
+                  setFilter(item);
                   if (searchRef.current) searchRef.current.value = "";
                 }}
-                className={`px-6 py-3 cursor-pointer rounded-2xl font-semibold transition-all duration-300 ${
-                  selectedFilter === cat
+                className={`px-5 py-3 cursor-pointer rounded-2xl font-semibold transition-all duration-300 ${
+                  selectedFilter === item
                     ? "bg-linear-to-r from-[#fc4422] to-[#ff9266] text-white shadow-lg"
                     : "bg-base-100 shadow text-base-content hover:bg-base-300"
                 }`}
               >
-                {cat === "pets" && "Pets"}
-                {cat === "foods" && "Foods"}
-                {cat === "accessories" && "Accessories"}
-                {cat === "care-products" && "Care Products"}
+                {item === "pets" && "Pets"}
+                {item === "foods" && "Foods"}
+                {item === "accessories" && "Accessories"}
+                {item === "care-products" && "Care Products"}
               </button>
             ))}
           </div>
           <form
             onSubmit={handleSearch}
-            className="flex-1 max-w-md mx-auto lg:mx-0"
+            className="w-full flex-1 md:max-w-md mx-auto lg:mx-0"
           >
             <div className="relative">
               <input
                 ref={searchRef}
                 type="search"
                 name="Search"
-                placeholder="Search pets & supplies..."
-                className="w-full bg-base-200 border-2 border-base-300 rounded-2xl py-4 px-6 pr-14 text-base-content focus:outline-none focus:border-secondary outline-none transition-all duration-100 placeholder-base-content/50 font-medium"
+                placeholder="Search pets & supplies"
+                className="w-full bg-base-100 border-2 border-base-300 rounded-2xl py-3.5 px-6 text-base-content focus:outline-none focus:border-secondary outline-none transition-all duration-100 placeholder-base-content/50 font-medium"
               />
               <button
                 type="submit"
@@ -133,8 +105,8 @@ const AdoptShop = () => {
           </form>
         </div>
       </section>
-      <section className="max-w-7xl mx-auto w-[95%] pb-9 sm:pb-13 lg:w-[97%]">
-        <h2 className="text-2xl font-semibold md:text-3xl mb-4">
+      <section className="max-w-7xl mx-auto w-[95%] cursor-default pb-9 sm:pb-13 lg:w-[97%]">
+        <h2 className="text-2xl font-semibold md:text-3xl mb-4 sm:mb-5 md:mb-6 lg:mb-7">
           Available Products ({data.length})
         </h2>
         {data.length === 0 ? (
@@ -153,7 +125,7 @@ const AdoptShop = () => {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {data.map((item) => (
               <ItemBox key={item._id} item={item} />
             ))}

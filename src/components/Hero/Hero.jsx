@@ -9,14 +9,12 @@ import bg2 from "../../assets/Slide 2.jpg";
 import bg3 from "../../assets/Slide 3.jpg";
 import bg4 from "../../assets/Slide 4.jpg";
 import bg5 from "../../assets/Slide 5.jpg";
-import { motion } from "motion/react"
-import { Typewriter } from "react-simple-typewriter";
 
 const Hero = () => {
   return (
     <section
       id="banner"
-      className="relative max-w-7xl mx-auto w-[95%] pt-10 lg:w-[97%]"
+      className="relative max-w-7xl mx-auto w-[95%] lg:w-[97%]"
     >
       <Swiper
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
@@ -52,66 +50,21 @@ const Hero = () => {
             >
               <div className="z-0 absolute inset-0 bg-black/50"></div>
               <div className="relative z-10 h-full p-13 flex flex-col justify-center items-center gap-3 sm:p-15 md:p-20 md:gap-5 lg:gap-7">
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl"
-                >
-                  Find Your{" "}
-                  <span className="text-[#ff9266]">
-                    <Typewriter
-                      words={["Furry Friend"]}
-                      loop={1}
-                      cursor
-                      cursorStyle="_"
-                      typeSpeed={70}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                    />
-                  </span>{" "}
-                  Today
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]"
-                >
-                  Give a pet a loving home — adopt, don't shop. Every paw
+                <h1 className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl">
+                  Find Your Furry Friend Today
+                </h1>
+                <p className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]">
+                  Give a pet a loving home — adopt, don’t shop. Every paw
                   deserves happiness.
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Adopt Now
-                    </span>
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Explore Supplies
-                    </span>
-                  </motion.button>
-                </motion.div>
+                </p>
+                <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer border-2 border-secondary text-secondary transition-all duration-300 hover:scale-101 active:scale-99">
+                    Adopt Now
+                  </button>
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer bg-linear-to-r from-[#fc4422] to-[#ff9266] text-white transition-all duration-300 hover:scale-101 active:scale-99">
+                    Explore Supplies
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -126,66 +79,21 @@ const Hero = () => {
             >
               <div className="z-0 absolute inset-0 bg-black/50"></div>
               <div className="relative z-10 h-full p-13 flex flex-col justify-center items-center gap-3 sm:p-15 md:p-20 md:gap-5 lg:gap-7">
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl"
-                >
-                  Where{" "}
-                  <span className="text-[#ff9266]">
-                    <Typewriter
-                      words={["Pet Lovers"]}
-                      loop={1}
-                      cursor
-                      cursorStyle="_"
-                      typeSpeed={70}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                    />
-                  </span>{" "}
-                  Connect
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]"
-                >
+                <h1 className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl">
+                  Where Pet Lovers Connect
+                </h1>
+                <p className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]">
                   Join a caring community of adopters, owners, and pet
                   enthusiasts — all under one roof.
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Join Now
-                    </span>
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Browse Listings
-                    </span>
-                  </motion.button>
-                </motion.div>
+                </p>
+                <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer bg-linear-to-r from-[#fc4422] to-[#ff9266] text-white transition-all duration-300 hover:scale-101 active:scale-99">
+                    Join Now
+                  </button>
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer border-2 border-secondary text-secondary transition-all duration-300 hover:scale-101 active:scale-99">
+                    Browse Listings
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -200,64 +108,21 @@ const Hero = () => {
             >
               <div className="z-0 absolute inset-0 bg-black/50"></div>
               <div className="relative z-10 h-full p-13 flex flex-col justify-center items-center gap-3 sm:p-15 md:p-20 md:gap-5 lg:gap-7">
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl"
-                >
-                  <span className="text-[#ff9266]">
-                    <Typewriter
-                      words={["Adopt Love. Shop Care."]}
-                      loop={1}
-                      cursor
-                      cursorStyle="_"
-                      typeSpeed={70}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                    />
-                  </span>
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]"
-                >
+                <h1 className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl">
+                  Adopt Love. Shop Care.
+                </h1>
+                <p className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]">
                   From adorable adoptions to quality supplies — PawMart brings
                   it all together for your pets.
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Browse Pets
-                    </span>
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Shop Supplies
-                    </span>
-                  </motion.button>
-                </motion.div>
+                </p>
+                <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer border-2 border-secondary text-secondary transition-all duration-300 hover:scale-101 active:scale-99">
+                    Browse Pets
+                  </button>
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer bg-linear-to-r from-[#fc4422] to-[#ff9266] text-white transition-all duration-300 hover:scale-101 active:scale-99">
+                    Shop Supplies
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -272,65 +137,21 @@ const Hero = () => {
             >
               <div className="z-0 absolute inset-0 bg-black/50"></div>
               <div className="relative z-10 h-full p-13 flex flex-col justify-center items-center gap-3 sm:p-15 md:p-20 md:gap-5 lg:gap-7">
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl"
-                >
-                  Because Every{" "}
-                  <span className="text-[#ff9266]">
-                    <Typewriter
-                      words={["Paw Deserves Love"]}
-                      loop={1}
-                      cursor
-                      cursorStyle="_"
-                      typeSpeed={70}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                    />
-                  </span>
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]"
-                >
+                <h1 className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl">
+                  Because Every Paw Deserves Love
+                </h1>
+                <p className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]">
                   Be a hero to a homeless pet — adopt, care, and make a
                   difference today.
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Start Adopting
-                    </span>
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Learn More
-                    </span>
-                  </motion.button>
-                </motion.div>
+                </p>
+                <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer bg-linear-to-r from-[#fc4422] to-[#ff9266] text-white transition-all duration-300 hover:scale-101 active:scale-99">
+                    Start Adopting
+                  </button>
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer border-2 border-secondary text-secondary transition-all duration-300 hover:scale-101 active:scale-99">
+                    Learn More
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -345,76 +166,28 @@ const Hero = () => {
             >
               <div className="z-0 absolute inset-0 bg-black/70"></div>
               <div className="relative z-10 h-full p-13 flex flex-col justify-center items-center gap-3 sm:p-15 md:p-20 md:gap-5 lg:gap-7">
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl"
-                >
-                  Your Trusted{" "}
-                  <span className="text-[#ff9266]">
-                    <Typewriter
-                      words={["Pet Marketplace"]}
-                      loop={1}
-                      cursor
-                      cursorStyle="_"
-                      typeSpeed={70}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                    />
-                  </span>
-                </motion.h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]"
-                >
+                <h1 className="text-center text-2xl font-bold text-white cursor-default sm:text-3xl md:text-4xl lg:text-5xl">
+                  Your Trusted Pet Marketplace
+                </h1>
+                <p className="text-center text-gray-300 w-[80%] cursor-default sm:w-[75%] md:w-[70%] md:text-lg lg:w-[60%] xl:w-[50%]">
                   Buy, adopt, or list your pets and products securely — all with
-                  PawMart's trusted community.
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#fc4422] to-[#ff9266] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#ff9266] to-[#fc4422] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff7043] via-[#ff8255] to-[#ff9266] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Explore Now
-                    </span>
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium overflow-hidden transition-all rounded-lg rounded-tr-3xl rounded-bl-3xl group bg-linear-to-r from-[#ff9266] to-[#fc4422] cursor-pointer active:opacity-95"
-                  >
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-full ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-mr-4 group-hover:-mt-4"></span>
-                    <span className="absolute bottom-0 rotate-180 left-0 inline-block w-4 h-4 transition-all duration-500 rounded-tr-3xl ease-in-out bg-linear-to-r from-[#fc4422] to-[#ff9266] rounded group-hover:-ml-4 group-hover:-mb-4"></span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full bg-linear-to-r from-[#ff9266] via-[#ff8255] to-[#ff7043] rounded-md group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">
-                      Add a Listing
-                    </span>
-                  </motion.button>
-                </motion.div>
+                  PawMart’s trusted community.
+                </p>
+                <div className="flex flex-col gap-1.5 sm:gap-3 sm:flex-row">
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer border-2 border-secondary text-secondary transition-all duration-300 hover:scale-101 active:scale-99">
+                    Explore Now
+                  </button>
+                  <button className="flex items-center px-6 py-3 text-[13px] sm:text-sm md:text-base font-medium rounded-lg rounded-tr-3xl rounded-bl-3xl cursor-pointer bg-linear-to-r from-[#fc4422] to-[#ff9266] text-white transition-all duration-300 hover:scale-101 active:scale-99">
+                    Add a Listing
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </SwiperSlide>
       </Swiper>
       <div className="custom-prev absolute left-5 top-1/2 -translate-y-1/2 z-10 sm:left-6 md:left-7 lg:left-9">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="button rotate-180"
-        >
+        <button className="button rotate-180">
           <span className="svg">
             <svg
               className="w-11 cursor-pointer sm:w-13 md:w-15 lg:w-17"
@@ -424,18 +197,14 @@ const Hero = () => {
             >
               <path
                 fill="white"
-                d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.150-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.020-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.10.013-.10.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z"
+                d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.15-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.02-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.01.013-.01.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z"
               ></path>
             </svg>
           </span>
-        </motion.button>
+        </button>
       </div>
       <div className="custom-next absolute right-5 top-1/2 -translate-y-1/2 z-10 sm:right-6 md:right-7 lg:right-9">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="button"
-        >
+        <button className="button">
           <span className="svg">
             <svg
               className="w-11 cursor-pointer sm:w-13 md:w-15 lg:w-17"
@@ -445,11 +214,11 @@ const Hero = () => {
             >
               <path
                 fill="white"
-                d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.150-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.020-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.10.013-.10.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z"
+                d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.15-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.02-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.01.013-.01.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z"
               ></path>
             </svg>
           </span>
-        </motion.button>
+        </button>
       </div>
     </section>
   );

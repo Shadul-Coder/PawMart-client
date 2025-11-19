@@ -1,135 +1,146 @@
-import { motion } from "motion/react"
-import { Typewriter } from "react-simple-typewriter";
+import { motion } from "motion/react";
+import { FaShieldAlt, FaHandsHelping } from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
+import { GiSelfLove } from "react-icons/gi";
 
 const WhyAdoptSection = () => {
   const adoptionReasons = [
     {
       id: 1,
-      icon: "🏠",
-      title: "Give Street Animals a Home",
+      icon: <IoHome />,
+      title: "Give a Pet a Second Chance",
       description:
-        "Over 50,000 stray animals in Dhaka alone need loving homes. Your adoption directly saves lives and reduces street animal suffering.",
-      stat: "50K+ Strays Need Homes",
+        "Many pets are waiting for a loving family. Your adoption can provide them the happy, safe, and caring home they deserve.",
+      stat: "Reduce Pet Homelessness",
     },
     {
       id: 2,
-      icon: "💰",
-      title: "Affordable & Responsible",
+      icon: <GiSelfLove />,
+      title: "Build an Emotional Bond",
       description:
-        "Adoption costs 70% less than buying from breeders. All pets are vaccinated and health-checked by our partner vets in Dhaka, Chittagong, and Sylhet.",
-      stat: "70% Cost Saving",
+        "Adopted pets tend to form deeper emotional attachments as they appreciate love, support, and care more than ever.",
+      stat: "Love That Lasts Forever",
     },
     {
       id: 3,
-      icon: "❤️",
-      title: "Support Local Rescue",
+      icon: <FaShieldAlt />,
+      title: "Safe & Verified Listings",
       description:
-        "Work with trusted Bangladeshi rescue organizations like Obhoyaronno and JAAGO Foundation. Your adoption supports their life-saving work.",
-      stat: "25+ Local Partners",
+        "We ensure authentic adoption listings from real owners, promoting safe transitions, transparency, and responsible pet care.",
+      stat: "Trusted & Community Driven",
     },
     {
       id: 4,
-      icon: "🌱",
-      title: "Adapted to Bangladesh Climate",
+      icon: <FaHandsHelping />,
+      title: "Support Animal Welfare",
       description:
-        "Our rescued pets are already adapted to Bangladesh's climate and living conditions, making them perfect companions for local families.",
-      stat: "Climate Adapted",
+        "By adopting instead of buying, you help reduce unethical breeding and encourage responsible pet ownership worldwide.",
+      stat: "Be a Hero for Animals",
     },
   ];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+  const statVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
   return (
-    <section className="py-16 md:py-20">
-      <div className="max-w-7xl mx-auto w-[95%] lg:w-[97%]">
-        <div className="text-center mb-16 lg:mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
+    <motion.section
+      className="max-w-7xl mx-auto w-[95%] lg:w-[97%] cursor-default"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={containerVariants}
+    >
+      <motion.div
+        className="space-y-1.5 mb-7 sm:space-y-3 md:mb-9 lg:mb-11"
+        variants={itemVariants}
+      >
+        <h2 className="text-center text-xl font-bold sm:text-2xl lg:text-3xl">
+          Why Adopt From <span className="text-[#fc4422]">PawMart?</span>
+        </h2>
+        <p className="text-center md:w-[70%] md:mx-auto md:text-lg">
+          At PawMart, every pet deserves a loving home. Adoption brings joy to
+          your life while giving a pet a second chance filled with love and care
+        </p>
+      </motion.div>
+      <motion.div
+        className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-5 mb-7 md:mb-9 lg:mb-11"
+        variants={containerVariants}
+      >
+        {[
+          { number: "10K+", label: "Successful Adoptions" },
+          { number: "120+", label: "Trusted Cities Connected" },
+          { number: "100%", label: "Verified Profiles" },
+          { number: "250+", label: "Partnered Vets & Trainers" },
+        ].map((stat, index) => (
+          <motion.div
+            key={index}
+            className="text-center p-6 sm:py-9 lg:py-11 bg-base-100 shadow rounded-2xl"
+            variants={statVariants}
           >
-            Why Adopt from{" "}
-            <span className="text-[#fc4422]">
-              <Typewriter
-                words={["PawMart"]}
-                loop={1}
-                cursor
-                cursorStyle="_"
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1000}
-              />
-            </span>{" "}
-            BD?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:text-lg max-w-3xl mx-auto"
+            <div className="text-2xl lg:text-3xl font-bold text-[#fc4422]">
+              {stat.number}
+            </div>
+            <div className="text-gray-500 text-sm mt-2">{stat.label}</div>
+          </motion.div>
+        ))}
+      </motion.div>
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5"
+        variants={containerVariants}
+      >
+        {adoptionReasons.map((reason) => (
+          <motion.div
+            key={reason.id}
+            className="group relative bg-orange-300/15 rounded-3xl p-5 md:p-7 shadow-lg hover:shadow-xl transition-all duration-500 border border-secondary"
+            variants={itemVariants}
           >
-            Join thousands of Bangladeshi families who've chosen compassion.
-            Every adoption creates space for another street animal to be
-            rescued.
-          </motion.p>
-        </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {[
-            { number: "15K+", label: "Pets Adopted" },
-            { number: "25+", label: "Cities Covered" },
-            { number: "95%", label: "Success Rate" },
-            { number: "50+", label: "Vet Partners" },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="text-center p-6 bg-base-100 shadow rounded-2xl"
-            >
-              <div className="text-2xl lg:text-3xl font-bold text-[#fc4422]">
-                {stat.number}
+            <div className="flex items-start gap-5">
+              <div className="shrink-0 text-5xl transform group-hover:scale-105 transition-transform duration-300">
+                {reason.icon}
               </div>
-              <div className="text-gray-600 text-sm mt-2">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {adoptionReasons.map((reason, index) => (
-            <motion.div
-              key={reason.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
-              className="group relative bg-gradient-to-br from-white/10 to-orange-50/10 rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-orange-100"
-            >
-              <div className="hidden sm:flex absolute -top-4 -left-4 w-12 h-12 bg-[#fc4422] text-white rounded-full items-center justify-center font-bold text-lg shadow-lg">
-                {index + 1}
-              </div>
-              <div className="flex items-start gap-6">
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="flex-shrink-0 text-5xl transform group-hover:scale-110 transition-transform duration-300"
-                >
-                  {reason.icon}
-                </motion.div>
-                <div className="flex-1">
-                  <h3 className="text-2xl lg:text-3xl font-bold mb-4 group-hover:text-[#fc4422] transition-colors duration-300">
-                    {reason.title}
-                  </h3>
-                  <p className="text-gray-600/300 text-lg leading-relaxed mb-6">
-                    {reason.description}
-                  </p>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#fc4422] text-white rounded-full text-sm font-semibold">
-                    {reason.stat}
-                  </div>
+              <div className="flex-1">
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 transition-colors duration-300">
+                  {reason.title}
+                </h3>
+                <p className="text-gray-500 sm:text-lg text-justify leading-relaxed mb-6">
+                  {reason.description}
+                </p>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-primary to-secondary text-white rounded-xl text-sm font-semibold">
+                  {reason.stat}
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.section>
   );
 };
 

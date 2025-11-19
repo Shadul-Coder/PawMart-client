@@ -8,6 +8,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { FiShoppingBag } from "react-icons/fi";
 import { MdEditDocument, MdOutlinePets } from "react-icons/md";
+import FAQ from "../components/FAQ/FAQ";
 
 const Details = () => {
   const { id } = useParams();
@@ -86,8 +87,8 @@ const Details = () => {
             Know More, Care Better
           </h1>
           <p className="text-base-content/60 text-lg max-w-md mx-auto">
-            Explore the details about this pet or product and connect with a
-            caring community that values every pet and their wellbeing
+            Every detail matters when it comes to finding the perfect match for
+            your home and heart
           </p>
         </div>
         <div className="my-3 breadcrumbs text-sm sm:text-base md:text-lg">
@@ -101,63 +102,30 @@ const Details = () => {
             <li>{name}</li>
           </ul>
         </div>
-        <div className="bg-base-100 rounded-2xl md:rounded-3xl shadow-lg md:shadow-xl overflow-hidden border border-base-300/50">
-          <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 p-4 md:p-6 lg:p-8">
-              <div className="rounded-xl md:rounded-2xl overflow-hidden shadow-lg bg-base-200 aspect-square flex items-center justify-center relative group">
-                <img
-                  src={image}
-                  alt={name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute top-5 left-5">
-                  <span className="px-3 py-2 bg-linear-to-r from-primary to-secondary text-white rounded-lg text-sm font-semibold shadow-lg">
-                    {category}
-                  </span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7">
+          <div className="lg:col-span-7">
+              <div className="rounded-3xl shadow-lg overflow-hidden">
+                <div className="relative group">
+                  <img
+                    src={image}
+                    alt={name}
+                    className="w-full h-full aspect-square object-cover transition-all duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-6 right-6">
+                    <span className="px-3 py-2 bg-linear-to-r from-primary to-secondary text-white rounded-lg text-sm font-semibold shadow-lg">
+                      {category}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="lg:w-1/2 p-4 md:p-6 lg:p-8 flex flex-col justify-between">
-              <div className="space-y-4 md:space-y-6">
-                <div className="mt-4 md:mt-0">
-                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-base-content mb-3 md:mb-4 leading-tight">
-                    {name}
-                  </h1>
-                  <div className="w-15 h-1 bg-linear-to-r from-primary to-secondary rounded-full mb-4 md:mb-6"></div>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3 md:gap-4">
-                  <div className="flex items-center gap-3 p-3 md:p-4 bg-base-200/50 rounded-xl border border-base-300/30 hover:border-[#ff9266]/30 transition-colors">
-                    <div className="w-10 h-10 bg-linear-to-br from-[#fc4422] to-[#ff9266] rounded-lg flex items-center justify-center shadow-md">
-                      <span className="text-white text-lg">
-                        <FaLocationDot />
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-xs md:text-sm text-base-content/60 font-medium">
-                        Location
-                      </p>
-                      <p className="font-semibold text-base-content text-sm md:text-base">
-                        {location}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-3 md:p-4 bg-base-200/50 rounded-xl border border-base-300/30 hover:border-[#ff9266]/30 transition-colors">
-                    <div className="w-10 h-10 bg-linear-to-br from-[#fc4422] to-[#ff9266] rounded-lg flex items-center justify-center shadow-md">
-                      <span className="text-white text-lg">
-                        <FaUser />
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-xs md:text-sm text-base-content/60 font-medium">
-                        Owner
-                      </p>
-                      <p className="font-semibold text-base-content text-sm md:text-base truncate">
-                        {email}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4 md:p-6 bg-linear-to-r from-[#fc4422]/10 to-[#ff9266]/10 rounded-xl md:rounded-2xl border border-[#fc4422]/20">
+              <div className="hidden mt-13 lg:block">
+                <FAQ />
+              </div>
+          </div>
+          <div className="lg:col-span-5">
+            <div className="sticky top-7 bg-base-100 rounded-3xl shadow-lg p-5 h-fit sm:p-6 md:p-7 lg:p-8">
+              <div className="mb-8">
+                <div className="p-4 bg-linear-to-r from-[#fc4422]/10 to-[#ff9266]/10  rounded-2xl border border-[#fc4422]/20 mb-4">
                   <div>
                     <p className="text-base-content/60 text-sm md:text-base font-medium">
                       Price
@@ -167,19 +135,6 @@ const Details = () => {
                     </p>
                   </div>
                 </div>
-                <div className="space-y-3 md:space-y-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-1 h-6 bg-[#fc4422] rounded-full"></div>
-                    <h3 className="text-lg md:text-xl font-bold text-base-content">
-                      Description
-                    </h3>
-                  </div>
-                  <p className="text-base-content/80 leading-relaxed bg-base-200/30 p-4 rounded-xl border border-base-300/30 text-sm md:text-base">
-                    {description}
-                  </p>
-                </div>
-              </div>
-              <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-base-300/30">
                 <button
                   onClick={() => modalRef.current.showModal()}
                   className="w-full cursor-pointer bg-linear-to-r from-[#fc4422] to-[#ff9266] text-white py-3 rounded-xl font-semibold text-base md:text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.005] active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-3 group"
@@ -200,6 +155,27 @@ const Details = () => {
                     </>
                   )}
                 </button>
+              </div>
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="bg-base-200 rounded-2xl p-4 border border-gray-500/30">
+                  <FaLocationDot className="text-secondary text-lg mb-2" />
+                  <p className="text-gray-500 text-sm">Location</p>
+                  <p className="font-semibold truncate">{location}</p>
+                </div>
+                <div className="bg-base-200 rounded-2xl p-4 border border-gray-500/30">
+                  <FaUser className="text-secondary text-lg mb-2" />
+                  <p className="text-gray-500 text-sm">Listed By</p>
+                  <p className="font-semibold truncate">{email}</p>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                  <div className="w-1.5 h-6 bg-linear-to-b from-primary to-secondary rounded-full"></div>
+                  About This {category === "Pets" ? "Pet" : "Product"}
+                </h3>
+                <p className="text-justify leading-relaxed bg-base-200 rounded-2xl p-6 border border-gray-500/30">
+                  {description}
+                </p>
               </div>
             </div>
           </div>
