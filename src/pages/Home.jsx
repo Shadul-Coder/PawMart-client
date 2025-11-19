@@ -1,7 +1,6 @@
 import CategorySection from "../components/CategorySection/CategorySection";
 import FAQ from "../components/FAQ/FAQ";
 import Hero from "../components/Hero/Hero";
-import PetHero from "../components/PetHero/PetHero";
 import RecentSection from "../components/RecentSection/RecentSection";
 import WhyAdoptSection from "../components/WhyAdoptSection/WhyAdoptSection";
 
@@ -14,7 +13,6 @@ const Home = () => {
         <CategorySection />
         <RecentSection />
         <WhyAdoptSection />
-        <PetHero />
         <section className="max-w-7xl mx-auto w-[95%] cursor-default lg:w-[97%]">
           <FAQ />
         </section>
