@@ -6,7 +6,7 @@ const ErrorPage = () => {
       <img
         src={error}
         alt="Error"
-        className="w-[300px] sm:w-[350px] md:w-[400px] lg:w-[450px]"
+        className="w-[200px] sm:w-[300px] md:w-[375px] lg:w-[450px]"
       />
     </div>
   );
